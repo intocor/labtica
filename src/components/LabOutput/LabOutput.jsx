@@ -1,9 +1,11 @@
 import React from 'react';
-import './laboutput.css';
+import './LabOutput.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import {BsDot} from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 function Laboutput(){
+    const navigate = useNavigate();
     return (
         <div className="bodylaboutput">
             <div className="button-container">
@@ -17,10 +19,10 @@ function Laboutput(){
             </div>
 
             <div className="tableoutputcontainer">
-                <div class="square">
+                <div class="square-after">
                     <div className="laboutputtext">
-                        <h1 className="laboratorytest">LABORATORY TEST</h1>
-                        <h2 className="completebloodcount">Complete Blood Count</h2>
+                        <h1 className="laboratorytest-after">LABORATORY TEST</h1>
+                        <h2 className="completebloodcount-after">Complete Blood Count</h2>
                         <table className="outouttable">
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>White Blood Cell Count (WBC)</td>
@@ -64,7 +66,7 @@ function Laboutput(){
                         </tr>
                         </table>
                         <div>
-                            <input type="testagain" value="Test Again" className="testagain"></input>
+                            <input type="testagain" value="Test Again" className="testagain"onMouseDown={()=>{navigate('/LabInput'); }}></input>
                         </div>
                     </div>
                 </div>
@@ -74,5 +76,4 @@ function Laboutput(){
 }
 
 export default Laboutput;
-
 

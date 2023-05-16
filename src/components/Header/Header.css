@@ -76,13 +76,13 @@ a {
 
 /* Toggle Icon Animation */
 
-.toggle .line1 {
+.toggle .line1-header {
   transform: rotate(-45deg) translate(-4px, 5px);
 }
-.toggle .line2 {
+.toggle .line2-header {
   opacity: 0;
 }
-.toggle .line3 {
+.toggle .line3-header {
   transform: rotate(45deg) translate(-4px, -5px);
 }
 img {

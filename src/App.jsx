@@ -1,14 +1,15 @@
-import React from "react";
-import Navbar from "./components/navbar";
-import Laboutput from "./pages/laboutput";
+import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import './App.css';
+import RouterConfig from './RouterConfig';
+import Header from './components/Header/Header';
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Navbar />
-      <Laboutput />
-    </div>
+    <Router>
+    <Header />
+    <RouterConfig />
+    </Router>
   );
 }
 
-export default App;

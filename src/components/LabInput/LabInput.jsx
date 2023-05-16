@@ -1,8 +1,11 @@
 import React from 'react';
-import './labinput.css';
+import './LabInput.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { useNavigate } from "react-router-dom";
+
 
 function Labinput(){
+    const navigate = useNavigate();
     return (
         <div className="bodylabinput">
             <div className="button-container">
@@ -11,7 +14,6 @@ function Labinput(){
                     <p className="textinputtime">Test Date & Time </p> <input type="datetime-local" className="inputtime" name="datetime"/>
                 </div>
             </div>
-
             <div className="tableinput">
                 <div class="square">
                     <div className="inputnum">
@@ -66,7 +68,7 @@ function Labinput(){
                                         </div>
                                     </div>
                                     <div>
-                                        <input type="submit" value="Submit" className="submit"></input>
+                                        <input type="submit" value="Submit" className="submit" onMouseDown={()=>{navigate('/LabOutput'); }}></input>
                                     </div>
                                 </form>
                             </div>
@@ -79,5 +81,4 @@ function Labinput(){
 }
 
 export default Labinput;
-
 

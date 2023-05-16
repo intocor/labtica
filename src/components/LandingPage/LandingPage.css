@@ -1,0 +1,310 @@
+.background {
+    background-image: url("./Main-Picture.png");
+    background-size: cover;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  /* Background images */
+  .background-1 {
+    background-image: url("./Main-Picture.png");
+  }
+  
+  .background-2 {
+    background-image: url("./11.png");
+  }
+  
+  .background-3 {
+    background-image: url("./12.png");
+  }
+  
+  .infoLabtica {
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+  }
+  
+  .arrow-button {
+    font-size: 2.5em;
+    color: #425BE1;
+    cursor: pointer;
+  }
+  
+  
+  .check,
+  .about-cbc {
+    font-size: 1.25em;
+  }
+  
+  .info,
+  .cbc-texts,
+  .footer2-1-info,
+  .socials-info {
+    font-size: 1.125em;
+  }
+  
+  .footer-margin {
+    margin-top: 3.5em;
+    margin-bottom: -4em;
+  }
+  
+  .footer-bottom {
+    margin-top: -5em;
+  }
+  
+  .footer-heading,
+  .info,
+  .start-button,
+  .about-cbc,
+  .technological,
+  .footer2-1-info,
+  .contact-us,
+  .contact-info,
+  .language,
+  .language-button,
+  .language-dropdown,
+  .footer3-info,
+  .socials-info,
+  .socials {
+    font-family: Inter;
+  }
+  
+  .check {
+    color: #5E5E61;
+  }
+  
+  .info {
+    color: #FFF8F8;
+    margin-top: 7em;
+  }
+  
+  .title {
+    font-family: Kaisei Decol;
+    font-style: bold;
+    font-size: 2.25em;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+  }
+  
+  .start-button {
+    width: 9.5em;
+    height: 3em;
+    border-radius: 5em;
+    background-color: #425BE1;
+    align-items: center;
+  }
+  
+  .start-text {
+    font-size: 1em;
+    margin: auto;
+    color: #FFF8F8;
+  }
+  
+  .footer {
+    height: 7.1875em;
+    border-radius: 5.125em;
+    background-color: #E7F1FC;
+  }
+  
+  .cbc-texts {
+    line-height: 1.2em;
+    text-align: justify;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .manypics:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #0a0909;
+  }
+  
+  
+  .manypics {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  
+  .about-cbc {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+  .new-element {
+    border-radius: 25px;
+    background-color: rgba(22, 19, 137, 0.15);
+  }
+  
+  .new-element2 {
+    border-radius: 25px;
+    background-color: rgba(158, 9, 76, 0.15);
+  }
+  
+  .footer2 {
+    background-color: #E7F1FC;
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 3em;
+  }
+  
+  .footer-firstelem {
+    margin-top: 9em;
+  }
+  
+  .technological {
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .message-container {
+    width: 25em;
+    height: 4.375em;
+    border-radius: 9px;
+    background-color: #FFFFFF;
+  }
+  
+  .message-input {
+    width: 13em;
+    height: 1.875em;
+    border: none;
+    font-size: 1em;
+    padding: 0.625em;
+  }
+  
+  .send-button {
+    width: 9em;
+    height: 3.5em;
+    border: none;
+    border-radius: 9px;
+    background-color: #171313;
+    color: #FFFFFF;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .send-button:hover {
+    background-color: #231f1f;
+  }
+  
+  .send-button:active {
+    background-color: #0d0b0b;
+    box-shadow: 0 0 5px #888;
+  }
+  
+  .footer2-1-info {
+    color: #4F4747;
+    text-align: justify;
+  
+  }
+  
+  .footer2-1-info p {
+    margin-bottom: 1.5em;
+  }
+  
+  .contact-us {
+    font-style: bold;
+    font-size: 1.5em;
+    letter-spacing: 1.5%;
+    color: #0E0606;
+    text-align: left;
+  }
+  
+  .contact-info {
+    text-align: left;
+    font-size: 1.1em;
+    color: #4F4747;
+  }
+  
+  .contact-info p {
+    margin-bottom: 0em;
+  }
+  
+  .contact-info-lastline {
+    margin-top: 2em;
+    text-align: justify;
+  }
+  
+  .language {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #0E0606;
+  }
+  
+  .invisible {
+    color: #E7F1FC;
+  }
+  
+  .language-dropdown {
+    width: 7em;
+    height: 3em;
+    border: 0;
+    border-radius: 8px;
+    font-size: 2.5em;
+    background-color: rgb(207, 223, 236);
+  }
+  
+  .language-dropdown:hover {
+    cursor: pointer;
+  }
+  
+  .socials {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  .social-logos {
+    font-size: 1.5625em;
+  }
+  
+  .footer3-info {
+    font-size: 1em;
+    letter-spacing: 0.05em;
+  }
+  
+  
+  @media (max-width: 767.98px) {
+    .footer-heading {
+      font-size: 0.8em;
+    }
+  
+    .socialtext {
+      font-size: 0.8em;
+    }
+  
+  }
+  
+  @media (max-width: 991.98px) {
+  
+    .technological {
+      font-size: 3em;
+    }
+  
+    .image-container {
+      width: 60%;
+      justify-content: center;
+    }
+  
+    .center-images {
+      justify-content: center;
+    }
+  
+    .cbc-texts {
+      font-size: 1em;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .footer-heading {
+      font-size: 1em;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .footer-heading {
+      font-size: 1.25em;
+    }
+  }
+  

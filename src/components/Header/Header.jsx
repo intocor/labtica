@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import './navbar.css';
+import React, { useState } from 'react';
+import './Header.css';
 import { CgMenu } from 'react-icons/cg';
 import {MdAccountCircle} from 'react-icons/md';
 
-function Navbar(){
+function Header() {
     const [active, setActive] = useState("nav__menu");
     const [toggleIcon, setToggleIcon] = useState("nav__toggle");
     const navToggle = () => {
@@ -19,23 +19,23 @@ function Navbar(){
         <nav className="nav">
             <div className="logo">
                 <a href="/">
-                    <img src="src/assets/logo.png"></img>
+                    <img src="./logo-cor.png"></img>
                 </a>
             </div>
             <ul className={active}>
-                <li className="nav__item"><a href="#" className="nav__link">Home</a></li>
-                <li className="nav__item"><a href="#" className="nav__link">Test</a></li>
+                <li className="nav__item"><a href="/LandingPage" className="nav__link">Home</a></li>
+                <li className="nav__item"><a href="/Labinput" className="nav__link">Test</a></li>
                 <li className="nav__item"><a href="#" className="nav__link">About</a></li>
-                <li className="nav__item"><a href="#" className="nav__link"> <MdAccountCircle /> Login</a></li>
+                <li className="nav__item"><a href="/login" className="nav__link"> <MdAccountCircle /> Login</a></li>
             </ul>
             <div onMouseDown= {navToggle} className={toggleIcon}>
-                <div className="line1"><CgMenu /></div>
-                <div className="line2"></div>
-                <div className="line2"></div>
+                <div className="line1-header"><CgMenu /></div>
+                <div className="line2-header"></div>
+                <div className="line3-header"></div>
             </div>
             <hr></hr>
         </nav>
     );
 }
 
-export default Navbar;
+export default Header;
