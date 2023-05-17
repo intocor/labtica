@@ -3,6 +3,7 @@ import './LoginPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CgGoogle } from 'react-icons/cg';
 import { useNavigate } from 'react-router-dom';
+import {getAuth, GoogleAuthProvider} from 'firebase/auth';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -10,6 +11,8 @@ const LoginPage = () => {
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
+  let auth= getAuth();
+  let googleprovider = new GoogleAuthProvider();
 
   const handleSubmit = (event) => {
     event.preventDefault();
