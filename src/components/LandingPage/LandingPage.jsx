@@ -7,9 +7,11 @@ import { BsInstagram } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import React, { useState } from 'react';
 import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
   const [backgroundImage, setBackgroundImage] = useState('background-1');
+  const navigate = useNavigate();
 
   const handleRightClick = () => {
     if (backgroundImage === 'background-1') {
@@ -52,7 +54,9 @@ function LandingPage() {
         <div className="row mt-3">
           <div className="col-2 col-md-1 me-5"></div>
           <div className="col">
-            <button className="start-button border border-0">
+            <button className="start-button border border-0" onClick={() => {
+            navigate('/login');
+          }}>
               <p className="start-text">Get started</p>
             </button>
           </div>
@@ -313,8 +317,7 @@ function LandingPage() {
 
 
       </div>
-
-      <div className="container-fluid footer2">
+      <div id="footer" className="container-fluid footer2">
         <div className="row footer-firstelem">
           <div className="col-5 offset-1">
             <h2 className="technological display-2">Technological Integration In Clinical Assessments</h2>

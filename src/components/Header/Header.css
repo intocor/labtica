@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-size: 62.5%;
 }
@@ -23,8 +24,6 @@ a {
   justify-content: space-around;
   height: 8vh;
   background: white;
-  padding-top: 30px;
-  padding-bottom: 31px;
   border-bottom: 1px solid black;
 }
 .nav__brand {
