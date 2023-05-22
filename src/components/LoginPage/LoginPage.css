@@ -32,7 +32,6 @@
 
 .btn-signup {
   font-family: 'Inter', sans-serif;
-  width: 235px;
   height: 40px;
   --primary-color: linear-gradient(180deg, #4879F0 0%, #1F28A0 100%);
   --secondary-color: #FFFFFF;
@@ -46,7 +45,7 @@
   transition: 0.2s background;
   align-items: center;
   gap: 0.6em;
-  font-weight: bold;
+  /*font-weight: bold;*/
   justify-content: center;
 }
 

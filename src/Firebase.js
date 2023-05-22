@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+//import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -11,6 +11,7 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyBw2EctDWINKU7saJ_5VODcEjIuKJ70sz8",
   authDomain: "labtica-test.firebaseapp.com",
+  databaseURL: "https://labtica-test-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "labtica-test",
   storageBucket: "labtica-test.appspot.com",
   messagingSenderId: "377467708052",
@@ -20,6 +21,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-export const auth = getAuth();
-export const db = getFirestore();
+//const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+export const db = getFirestore(app);

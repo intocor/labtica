@@ -3,7 +3,6 @@ import './LabInput.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 
-
 function Labinput(){
     const navigate = useNavigate();
     return (
@@ -11,7 +10,10 @@ function Labinput(){
             <div className="button-container">
                 <button className="prevbutton">Previous Result</button>
                 <div className="divinputtime">
-                    <p className="textinputtime">Test Date & Time </p> <input type="datetime-local" className="inputtime" name="datetime"/>
+                    <p className="textinputtime">Test Date & Time </p> 
+                    <div className="innerdivinputtime">
+                        <input type="datetime-local" className="inputtime" name="datetime"/>
+                    </div>
                 </div>
             </div>
             <div className="tableinput">
@@ -45,7 +47,7 @@ function Labinput(){
                                         </div>
                                         <div className="form-input">
                                             <input type="number" step="any" name="mchc" placeholder="MCHC" className="inputfield" required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck"/> Mean Corpuscular Hemoglobin Concentration</p>
+                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck"/> Mean Corpuscular Hemo Concentration</p>
                                         </div>
                                         <div className="form-input">
                                             <input type="number" step="any" name="hgb" placeholder="HGB" className="inputfield" required></input>

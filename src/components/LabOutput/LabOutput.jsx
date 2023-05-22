@@ -66,7 +66,7 @@ function Laboutput(){
                         </tr>
                         </table>
                         <div>
-                            <input type="testagain" value="Test Again" className="testagain"onMouseDown={()=>{navigate('/LabInput'); }}></input>
+                            <input type="testagain" value="Run Another Test" className="testagain"onMouseDown={()=>{navigate('/LabInput'); }}></input>
                         </div>
                     </div>
                 </div>

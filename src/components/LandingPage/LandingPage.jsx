@@ -8,6 +8,7 @@ import { BsLinkedin } from 'react-icons/bs';
 import React, { useState } from 'react';
 import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import { IconContext } from 'react-icons/lib';
 
 function LandingPage() {
   const [backgroundImage, setBackgroundImage] = useState('background-1');
@@ -69,22 +70,25 @@ function LandingPage() {
 
             <div className="row h-100 align-items-center">
               <div className="footer-heading col offset-2">
-                <AiFillCheckCircle className="check mt-4 me-2" />
-                Reliable
+                
+                <div className="checkwords">
+                  <AiFillCheckCircle /> 
+                  Reliable
+                </div>
               </div>
 
               <div className="footer-heading col">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle />
                 Fast
               </div>
 
               <div className="footer-heading col">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle />
                 Accurate
               </div>
 
               <div className="footer-heading col">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle />
                 Personalized
               </div>
 
@@ -106,22 +110,22 @@ function LandingPage() {
 
             <div className="row h-100 align-items-center">
               <div className="footer-heading col offset-2">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle className="check me-2" />
                 Reliable
               </div>
 
               <div className="footer-heading col">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle className="check me-2" />
                 Fast
               </div>
 
               <div className="footer-heading col">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle className="check me-2" />
                 Accurate
               </div>
 
               <div className="footer-heading col">
-                <AiFillCheckCircle className="check mt-4 me-2" />
+                <AiFillCheckCircle className="check me-2" />
                 Personalized
               </div>
 
@@ -318,7 +322,7 @@ function LandingPage() {
 
       </div>
       <div id="footer" className="container-fluid footer2">
-        <div className="row footer-firstelem">
+        {/* <div className="row footer-firstelem">
           <div className="col-5 offset-1">
             <h2 className="technological display-2">Technological Integration In Clinical Assessments</h2>
           </div>
@@ -332,30 +336,11 @@ function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="row mt-5">
-          <div className="col-10 col-sm-5 offset-1 footer2-1-info">
-            <p>At Labtica, we pride ourselves on providing excellent customer service. Our team of knowledgeable and friendly representatives are always here to assist you with any questions or concerns you may have.</p>
-            <p>If you need help using our platform or have any technical difficulties, please don't hesitate to reach out to us. You can contact us through email, phone, or by visiting our office during business hours. We are committed to ensuring your satisfaction with our service and are always striving to improve.</p>
-            <p>Thank you for choosing Labtica for your CBC testing needs. We value your trust and look forward to providing you with the best possible service.</p>
-          </div>
-          <div className="col offset-1">
-            <h3 className="contact-us">Contact us</h3>
-            <div className="contact-info mt-4">
-              <p>Email: info@labtica.com</p>
-              <p>Phone: (+63) 93 0308-5413</p>
-              <p>Address: 123 Quirino Avenue, Davao City, Philippines</p>
-              <p className="contact-info-lastline">Feel free to reach out to us with any questions or concerns you may have. We look forward to hearing from you!</p>
-            </div>
-          </div>
-          <div className="col-1"></div>
-        </div>
+        <div className="row">
 
-        <div className="row mt-5">
-          <div className="col-3 me-auto">
-            <div className="row">
-              <div className="col-12">
+              {/* <div className="col-12">
                 <h3 className="language">Language</h3>
               </div>
               <div className="col-12 invisible">_</div>
@@ -365,11 +350,12 @@ function LandingPage() {
                   <option value="fr">FR</option>
                   <option value="es">ES</option>
                 </select>
-              </div>
-            </div>
-          </div>
-
+              </div> */}
           <div className="col">
+            <img className="footerlogo" src="/public/logonobg.png"></img>
+          </div>
+           
+          <div className="col mt-5 footercontents">
             <div className="row">
               <div className="col-12">
                 <h3 className="socials">Socials</h3>
@@ -381,7 +367,7 @@ function LandingPage() {
                     </div>
                     <div className="col-6 col-md-7 col-sm-8 align-self-center socialtext">facebook.com/Labtica
                     </div>
-                    <div className="col-2"></div>
+                    <div className="col-2"></div> 
 
 
                     <div className="col-4 col-md-3 col-sm-2 social-logos"><BsTwitter />

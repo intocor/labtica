@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Header.css';
 import { CgMenu } from 'react-icons/cg';
 import {MdAccountCircle} from 'react-icons/md';
-import { HashLink } from 'react-router-hash-link';
 
 function Header() {
     const [active, setActive] = useState("nav__menu");
@@ -26,7 +25,7 @@ function Header() {
             <ul className={active}>
                 <li className="nav__item"><a href="/LandingPage" className="nav__link">Home</a></li>
                 <li className="nav__item"><a href="/labinput" className="nav__link">Test</a></li>
-                <li className="nav__item"><HashLink to="/LandingPage/#footer"><a className="nav__link">About</a></HashLink></li>
+                <li className="nav__item"><a href="/About" className="nav__link">About</a></li>
                 <li className="nav__item"><a href="/login" className="nav__link"> <MdAccountCircle /> Login</a></li>
             </ul>
             <div onMouseDown= {navToggle} className={toggleIcon}>
