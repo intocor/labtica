@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './LoginPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CgGoogle } from 'react-icons/cg';
@@ -6,47 +6,35 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { auth } from '../../Firebase'
 
-
 const LoginPage = () => {
-  // const [email, setEmail] = useState('');
   const navigate = useNavigate();
-  // const handleEmailChange = (event) => {
-  //   setEmail(event.target.value);
-  // };
-  // // const auth= getAuth();
-  // // const googleprovider = new GoogleAuthProvider();
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Handle login logic here
-  // };
 
-  //const auth = getAuth();
-  //signInWithRedirect(auth, provider);
-  useEffect(
-    () => {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
-          // IdP data available using getAdditionalUserInfo(result)
-          // ...
-        }).catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.customData.email;
-          // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
-          // ...
-        });
-    }, []
-  )
-
+  const handleGoogleLogin = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        
+        //Redirect to the labinput page
+        navigate('/labinput');
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  };
 
   return (
     <div className="container-fluid login-background">
@@ -56,8 +44,9 @@ const LoginPage = () => {
 
       <div className="row">
         <div className="col d-flex justify-content-center">
-          <button className="btn-login border border-0 rounded-5">
-            <CgGoogle />Continue with Google</button>
+          <button className="btn-login border border-0 rounded-5" onClick={handleGoogleLogin}>
+            <CgGoogle />Continue with Google
+          </button>
         </div>
       </div>
 
@@ -75,9 +64,6 @@ const LoginPage = () => {
             navigate('/signin');
           }}>
             <CgGoogle />Register with Google
-            {/* <div className="arrow-wrapper">
-              <div className="arrow"></div>
-            </div> */}
           </button>
         </div>
       </div>
@@ -85,7 +71,6 @@ const LoginPage = () => {
       <div className="signup-link mt-4">
         <p>Don't have an account yet?</p>
       </div>
-
     </div>
   );
 };
