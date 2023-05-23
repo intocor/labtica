@@ -20,18 +20,24 @@
 
 .welcome {
   font-weight: 700;
-  font-size: 4em;
-  margin-top: 2em;
+  font-size: 6.4rem;
+  margin-top: 13rem;
 }
 
 .login-description,
 .or {
   font-weight: 400;
-  font-size: 1.125em;
+  font-size: 1.8rem;
+}
+
+.signup-link,
+.btn-login {
+  font-size: 1.5rem;
 }
 
 .btn-signup {
   font-family: 'Inter', sans-serif;
+  width: 235px;
   height: 40px;
   --primary-color: linear-gradient(180deg, #4879F0 0%, #1F28A0 100%);
   --secondary-color: #FFFFFF;
@@ -39,13 +45,13 @@
   --arrow-width: 10px;
   --arrow-stroke: 2px;
   color: var(--secondary-color);
-  padding: 1em 1.8em;
+  padding: 2rem 2.3rem;
   background: var(--primary-color);
   display: flex;
   transition: 0.2s background;
   align-items: center;
-  gap: 0.6em;
-  /*font-weight: bold;*/
+  gap: 1rem;
+  font-weight: bold;
   justify-content: center;
 }
 
@@ -54,7 +60,7 @@
   background-color: #EEEEEE;
   width: 235px;
   height: 43px;
-  margin-top: 3em;
+  margin-top: 4.5rem;
 }
 
 .btn-signup .arrow-wrapper {
@@ -98,10 +104,10 @@
 }
 
 .btn-login svg {
-  width: 1em;
-  height: 1em;
-  margin-right: 0.5em;
-  margin-bottom: 0.2em;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.8rem;
+  margin-bottom: 0.3rem;
 }
 
 .btn-login:hover:not(:disabled) {
@@ -113,9 +119,4 @@
   width: 90px;
   height: 0px;
   border: solid #FFFFFF;
-}
-
-.signup-link,
-.btn-login {
-  font-size: 0.9375em;
 }

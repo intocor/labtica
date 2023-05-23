@@ -352,7 +352,7 @@ function LandingPage() {
                 </select>
               </div> */}
           <div className="col">
-            <img className="footerlogo" src="/public/logonobg.png"></img>
+            <img className="footerlogo" src="./logonobg.png"></img>
           </div>
            
           <div className="col mt-5 footercontents">
