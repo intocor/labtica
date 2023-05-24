@@ -1,12 +1,11 @@
-.bodylabinput{
+.bodylabinput {
     background-image: url("./labinput.png");
-    background-size: full;
+    background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    height: 100vh;
+    height: 92vh;
+    overflow: hidden;
 }
+
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -16,6 +15,7 @@
     /* margin-right: 15px; */
     margin-bottom: -2%;
 }
+
 .prevbutton {
     border: none;
     color: white;
@@ -28,10 +28,12 @@
     background-image: linear-gradient(#507ee7, #222fa6);
     border-radius: 13px;
 }
+
 .divinputtime {
     display: flex;
     align-items: center;
 }
+
 .inputtime[type="datetime-local"]::-webkit-calendar-picker-indicator {
     color: white;
     cursor: pointer;
@@ -39,6 +41,7 @@
     width: auto; */
     display: flex;
 }
+
 .innerdivinputtime {
     padding: 10px;
     background-color: white;
@@ -47,11 +50,13 @@
     margin-left: 10px;
     margin-right: -14px;
 }
+
 .textinputtime {
     color: white;
     padding-right: 10px;
     padding-top: 10px;
 }
+
 .inputtime {
     border: none;
     background: white;
@@ -59,14 +64,16 @@
     font-size: 15px;
     z-index: 5;
 }
+
 .tableinput {
     /*width: 100%;*/
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:0;
+    padding: 0;
 }
+
 .square {
     position: relative;
     width: 90%;
@@ -77,23 +84,27 @@
     border-radius: 10px;
     z-index: -0;
 }
-.laboratorytest{
+
+.laboratorytest {
     text-align: center;
     color: white;
     padding-top: 60px;
 }
-.completebloodcount{
+
+.completebloodcount {
     text-align: center;
     color: white;
 }
+
 .formcontainer {
     min-height: 55vh;
-    margin-top:50px;
-    margin-left:10px;
-    margin-right:10px;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
     position: relative;
 }
-.grid{
+
+.grid {
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 5px;
@@ -101,22 +112,26 @@
     text-align: left;
     padding-left: 50px;
 }
+
 .inlinename {
     display: inline-block;
     padding-left: 10px;
     color: white;
     padding-left: 20px;
 }
+
 .buttonCheck {
-    color:#31dc26;
+    color: #31dc26;
     padding-right: 5px;
 }
+
 .inputfield {
     border-radius: 8px;
     padding: 10px 25px;
     color: black;
     margin-bottom: 10px;
 }
+
 .submit {
     border: none;
     color: white;
@@ -133,3 +148,11 @@
     margin-right: 20%;
 }
 
+#placeholder-loading {
+    width: 40rem;
+    height: 40rem;
+}
+
+.loading-margin {
+    margin-top: 22vh;
+}
