@@ -10,12 +10,12 @@ function Header() {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-  
+
     const updateUser = (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+        setUser(currentUser);
+        setLoading(false);
     };
-  
+
     auth.onAuthStateChanged(updateUser);
 
     return (
@@ -44,15 +44,19 @@ function Header() {
                             <li className="nav-item me-3">
                                 <a className="nav-link" href="/about">About</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item" style={(user || loading) ? { marginRight: loading ? '2.4rem' : '-3rem' } : {}}>
                                 {loading ? (
-                                    <span> Loading...</span>
+                                    <div className="d-flex justify-content-center mt-3">
+                                        <div className="spinner-border" role="status">
+                                            <span className="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
                                 ) : user ? (
-                                    <img src={user.photoURL} alt="Profile"/>
+                                    <img src={user.photoURL} id="acc-photo" alt="Profile" />
                                 ) : (
-                                <a className="nav-link" href="/login">
-                                    <MdAccountCircle /> Login
-                                </a>
+                                    <a className="nav-link" href="/login">
+                                        <MdAccountCircle /> Login
+                                    </a>
                                 )}
                             </li>
                         </ul>
