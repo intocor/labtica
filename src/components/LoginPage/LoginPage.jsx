@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CgGoogle } from 'react-icons/cg';
 import { useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { auth } from '../../Firebase'
+import { auth } from '../../Firebase';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -20,9 +20,11 @@ const LoginPage = () => {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        
-        //Redirect to the labinput page
-        navigate('/labinput');
+  
+        // Redirect to the labinput page only if user is logged in
+        if (user) {
+          navigate('/labinput');
+        }
       })
       .catch((error) => {
         // Handle Errors here.
@@ -35,6 +37,7 @@ const LoginPage = () => {
         // ...
       });
   };
+  
 
   return (
     <div className="container-fluid login-background">

@@ -21,6 +21,9 @@ function Laboutput(){
             <div className="tableoutputcontainer">
                 <div class="square-after">
                     <div className="laboutputtext">
+                    <div>
+                            <input type="testagain" value="Run Another Test" className="testagain"onMouseDown={()=>{navigate('/LabInput'); }}></input>
+                        </div>
                         <h1 className="laboratorytest-after">LABORATORY TEST</h1>
                         <h2 className="completebloodcount-after">Complete Blood Count</h2>
                         <table className="outouttable">
@@ -65,9 +68,6 @@ function Laboutput(){
                             <td className="cellspacing column2"><BsDot/> Normal</td>
                         </tr>
                         </table>
-                        <div>
-                            <input type="testagain" value="Run Another Test" className="testagain"onMouseDown={()=>{navigate('/LabInput'); }}></input>
-                        </div>
                     </div>
                 </div>
             </div>

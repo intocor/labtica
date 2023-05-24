@@ -76,7 +76,6 @@
     opacity: 92%;
     border-radius: 10px;
     z-index: -0;
-    overflow: scroll;
 }
 .laboratorytest{
     text-align: center;
@@ -133,3 +132,4 @@
     margin-top: 10px;
     margin-right: 20%;
 }
+
