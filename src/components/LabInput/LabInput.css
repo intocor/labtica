@@ -156,3 +156,12 @@
 .loading-margin {
     margin-top: 22vh;
 }
+
+.bodylabinput {
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.bodylabinput.fade-in {
+    opacity: 1;
+}

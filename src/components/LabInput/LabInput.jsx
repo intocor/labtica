@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './LabInput.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase';
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { db } from '../../Firebase';
+
 
 const withAuthCheck = (WrappedComponent) => {
     return () => {
@@ -99,9 +100,15 @@ function Labinput() {
         return true; // All inputs are valid numbers
     };
 
+    const [showComponent, setShowComponent] = useState(false);
+
+    useEffect(() => {
+        setShowComponent(true);
+    }, []);
+
 
     return (
-        <div className="bodylabinput">
+        <div className={`bodylabinput ${showComponent ? 'fade-in' : ''}`}>
             <div className="button-container">
                 <button className="prevbutton">Previous Result</button>
                 <div className="divinputtime">
@@ -175,5 +182,6 @@ function Labinput() {
         </div>
     );
 };
+
 export default withAuthCheck(Labinput);
 
