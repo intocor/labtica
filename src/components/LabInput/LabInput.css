@@ -2,150 +2,91 @@
     background-image: url("./labinput.png");
     background-size: cover;
     background-position: center;
-    height: 92vh;
-    overflow: hidden;
+    height: 100vh;
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    margin-left: 5%;
-    /* margin-right: 15px; */
-    margin-bottom: -2%;
+.maaargin {
+    margin-top: 3em;
 }
 
-.prevbutton {
+.prevbuttons {
     border: none;
+    border-radius: 13px;
     color: white;
-    padding: 5px 25px;
-    text-align: center;
+    padding: 0.5rem 2.5rem;
     text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
+    font-size: 2.5rem;
     cursor: pointer;
     background-image: linear-gradient(#507ee7, #222fa6);
-    border-radius: 13px;
-}
-
-.divinputtime {
-    display: flex;
-    align-items: center;
 }
 
 .inputtime[type="datetime-local"]::-webkit-calendar-picker-indicator {
     color: white;
     cursor: pointer;
-    /* height: auto;
-    width: auto; */
-    display: flex;
-}
-
-.innerdivinputtime {
-    padding: 10px;
-    background-color: white;
-    border-radius: 8px;
-    z-index: 1;
-    margin-left: 10px;
-    margin-right: -14px;
-}
-
-.textinputtime {
-    color: white;
-    padding-right: 10px;
-    padding-top: 10px;
 }
 
 .inputtime {
     border: none;
-    background: white;
-    color: black;
-    font-size: 15px;
-    z-index: 5;
+    font-size: 1.5rem;
 }
 
-.tableinput {
-    /*width: 100%;*/
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+.innerdivinputtime {
+    width: auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
 }
 
 .square {
-    position: relative;
     width: 90%;
-    height: 85%;
-    box-sizing: border-box;
     background-color: #161389;
-    opacity: 92%;
+    opacity: 90%;
     border-radius: 10px;
-    z-index: -0;
 }
 
-.laboratorytest {
-    text-align: center;
-    color: white;
-    padding-top: 60px;
+#paddingbox {
+    padding-top: 4rem;
 }
 
-.completebloodcount {
+.texthead {
     text-align: center;
     color: white;
 }
 
 .formcontainer {
-    min-height: 55vh;
-    margin-top: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
-    position: relative;
+    margin: 5rem 1rem;
+    padding-left: 5rem;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 5px;
-    justify-content: center;
-    text-align: left;
-    padding-left: 50px;
+.margincol {
+    margin-bottom: 3rem;
 }
 
 .inlinename {
-    display: inline-block;
-    padding-left: 10px;
     color: white;
-    padding-left: 20px;
+    padding-left: 2rem;
 }
 
 .buttonCheck {
-    color: #31dc26;
-    padding-right: 5px;
+    padding-right: 0.5rem;
 }
 
-.inputfield {
+.form-control {
     border-radius: 8px;
-    padding: 10px 25px;
-    color: black;
-    margin-bottom: 10px;
+    padding: 1rem 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .submit {
     border: none;
     color: white;
-    padding: 10px 25px;
-    float: right;
+    padding: 1rem 2.5rem;
     text-decoration: none;
-    /*display: inline-block;*/
-    font-size: 15px;
+    font-size: 1.5rem;
     cursor: pointer;
     background-image: linear-gradient(#507ee7, #222fa6);
     /* background-color: #31dc26;; */
     border-radius: 13px;
-    margin-top: 10px;
-    margin-right: 20%;
 }
 
 #placeholder-loading {
@@ -164,4 +105,36 @@
 
 .bodylabinput.fade-in {
     opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+    .prevbuttons {
+        font-size: 2rem;
+    }
+
+    .inputtime {
+        font-size: 1.2rem;
+    }
+
+    .inlinename {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .prevbuttons {
+        font-size: 1.5rem;
+    }
+
+    .inputtime {
+        font-size: 0.8rem;
+    }
+
+    .textinputtime {
+        font-size: 1rem;
+    }
+
+    .inlinename {
+        font-size: 1.2rem;
+    }
 }

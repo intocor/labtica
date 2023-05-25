@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './LabInput.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -108,78 +109,103 @@ function Labinput() {
 
 
     return (
-        <div className={`bodylabinput ${showComponent ? 'fade-in' : ''}`}>
-            <div className="button-container">
-                <button className="prevbutton">Previous Result</button>
-                <div className="divinputtime">
-                    <p className="textinputtime">Test Date & Time </p>
-                    <div className="innerdivinputtime">
-                        <input type="datetime-local" className="inputtime" name="datetime" />
+        <div className={`container-fluid bodylabinput ${showComponent ? 'fade-in' : ''}`}>
+            <div className="row">
+                <div className="col-4 col-md-3 offset-1">
+                    <div className="maaargin">
+                        <button className="prevbuttons">Previous Result</button>
                     </div>
                 </div>
+                <div className="col-2 col-md-3 mt-3 offset-0 offset-sm-1 offset-lg-2">
+                    <div className="maaargin">
+                        <p className="textinputtime text-end">Test Date & Time</p>
+                    </div></div>
+                <div className="innerdivinputtime col-4 col-sm-5 col-md-3 col-lg-2 maaargin">
+                    <input type="datetime-local" className="inputtime" name="datetime" />
+                </div>
             </div>
-            <div className="tableinput">
-                <div className="square">
-                    <div className="inputnum">
-                        <div className="labinputtext">
-                            <h1 className="laboratorytest">LABORATORY TEST</h1>
-                            <h2 className="completebloodcount">Complete Blood Count</h2>
-                            <div className="formcontainer">
-                                <form onSubmit={handleSubmit}>
-                                    <div className="grid">
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="wbc" value={labInput.wbc} placeholder="WBC" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> White Blood Cell Count</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="mcv" value={labInput.mcv} placeholder="MCV" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" />  Mean Corpuscular Volume</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="rbc" value={labInput.rbc} placeholder="RBC" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Red Blood Cell Count</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="mch" value={labInput.mch} placeholder="MCH" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Red Blood Cell Count</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="plt" value={labInput.plt} placeholder="PLT" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Platelete Count</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="mchc" value={labInput.mchc} placeholder="MCHC" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Mean Corpuscular Hemo Concentration</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="hgb" value={labInput.hgb} placeholder="HGB" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Hemoglobin Level</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="dwbc" value={labInput.dwbc} placeholder="DWBC" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" />Differential White Blood Cell Coun</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="hct" value={labInput.hct} placeholder="HCT" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Hematocrit Level</p>
-                                        </div>
-                                        <div className="form-input">
-                                            <input type="number" step="any" name="rbcdw" value={labInput.rbcdw} placeholder="RBSDW" className="inputfield" onChange={handleInputChange} required></input>
-                                            <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Red Blood Cell Distribition Width</p>
-                                        </div>
-                                        <div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <input type="submit" value="Submit" className="submit"></input>
-                                    </div>
-                                </form>
+
+            <div className="container square mt-5">
+
+                <div id="paddingbox">
+                    <h1 className="texthead">LABORATORY TEST</h1>
+                    <h2 className="texthead">Complete Blood Count</h2>
+                </div>
+
+                <form onSubmit={handleSubmit}>
+                    <div className="formcontainer">
+                        <div className="row">
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="wbc" value={labInput.wbc} placeholder="WBC" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> White Blood Cell Count</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="mcv" value={labInput.mcv} placeholder="MCV" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" />  Mean Corpuscular Volume</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="rbc" value={labInput.rbc} placeholder="RBC" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Red Blood Cell Count</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="mch" value={labInput.mch} placeholder="MCH" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Mean Corpuscular Hemoglobin</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="plt" value={labInput.plt} placeholder="PLT" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Platelet Count</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="mchc" value={labInput.mchc} placeholder="MCHC" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Mean Corpuscular Hemo Concentration</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="hgb" value={labInput.hgb} placeholder="HGB" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Hemoglobin Level</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="dwbc" value={labInput.dwbc} placeholder="DWBC" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Differential White Blood Cell Count</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="hct" value={labInput.hct} placeholder="HCT" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Hematocrit Level</p>
+                            </div>
+                            <div className="col-6 col-md-3 margincol">
+                                <input type="number" step="any" name="rbcdw" value={labInput.rbcdw} placeholder="RBSDW" className="form-control border border-0" onChange={handleInputChange} required></input>
+                            </div>
+                            <div className="col-6 col-md-3 mt-2">
+                                <p className="inlinename"> <BsFillCheckCircleFill className="buttonCheck" /> Red Blood Cell Distribition Width</p>
+                            </div>
+                            <div className="col-2 offset-4 offset-sm-5">
+                                <input type="submit" value="Submit" className="submit"></input>
                             </div>
                         </div>
+                        <div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
+
     );
 };
 

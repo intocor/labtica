@@ -44,9 +44,9 @@ function Header() {
                             <li className="nav-item me-3">
                                 <a className="nav-link" href="/about">About</a>
                             </li>
-                            <li className="nav-item" style={(user || loading) ? { marginRight: loading ? '2.4rem' : '-3rem' } : {}}>
+                            <li className="nav-item d-flex justify-content-center" style={(user || loading) ? { marginRight: loading ? '5.4rem' : '0' } : {}}>
                                 {loading ? (
-                                    <div className="d-flex justify-content-center mt-3">
+                                    <div className="mt-2 spin">
                                         <div className="spinner-border" role="status">
                                             <span className="visually-hidden">Loading...</span>
                                         </div>
