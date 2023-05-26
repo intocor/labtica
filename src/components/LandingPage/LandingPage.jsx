@@ -340,7 +340,7 @@ function LandingPage() {
           </div>
         </div> */}
 
-        <div className="row align-items-center">
+        <div className="row align-items-center w-100">
 
           {/* <div className="col-12">
                 <h3 className="language">Language</h3>
@@ -386,7 +386,7 @@ function LandingPage() {
 
                     <div className="col-4 col-md-3 col-sm-2 social-logos"><BsLinkedin />
                     </div>
-                    <div className="col-8 col-md-7 col-sm-8 align-self-center socialtext">linkedin.com/company/Labtica
+                    <div className="col-8 col-md-7 col-sm-8 align-self-center" id="linkedin">linkedin.com/company/Labtica
                     </div>
 
                   </div>
