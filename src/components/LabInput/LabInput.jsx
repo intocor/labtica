@@ -97,7 +97,7 @@ function Labinput() {
       addDoc(labInputCollection, data)
         .then(() => {
           console.log("Document successfully written!");
-          navigate("/LabOutput", {state: {result, createdAt: data.createdAt}});
+          navigate("/LabOutput", { state: { result, createdAt: data.createdAt } });
         })
         .catch((error) => {
           console.error("Error writing document: ", error);
@@ -126,23 +126,14 @@ function Labinput() {
 
   return (
     <div
-      className={`container-fluid bodylabinput ${
-        showComponent ? "fade-in" : ""
-      }`}
+      className={`container-fluid bodylabinput ${showComponent ? "fade-in" : ""
+        }`}
     >
       <div className="row">
         <div className="col-4 col-md-3 offset-1">
           <div className="maaargin">
             <button className="prevbuttons">Previous Result</button>
           </div>
-        </div>
-        <div className="col-2 col-md-3 mt-3 offset-0 offset-sm-1 offset-lg-2">
-          <div className="maaargin">
-            <p className="textinputtime text-end">Test Date & Time</p>
-          </div>
-        </div>
-        <div className="innerdivinputtime col-4 col-sm-5 col-md-3 col-lg-2 maaargin">
-          <input type="datetime-local" className="inputtime" name="datetime" value={labInput.datetime} onChange={handleInputChange}required/>
         </div>
       </div>
 
@@ -332,7 +323,7 @@ function Labinput() {
                   step="any"
                   name="rbcdw"
                   value={labInput.rbcdw}
-                  placeholder="RBSDW"
+                  placeholder="RBCDW"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -342,7 +333,7 @@ function Labinput() {
                 <p className="inlinename">
                   {" "}
                   <BsFillCheckCircleFill className="buttonCheck" /> Red Blood
-                  Cell Distribition Width
+                  Cell Distribution Width
                 </p>
               </div>
               <div className="col-2 offset-4 offset-sm-5">
