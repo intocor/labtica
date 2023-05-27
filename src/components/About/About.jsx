@@ -13,9 +13,9 @@ function About() {
           <div className="col-5 offset-1">
             <h2 className="technological display-2">Technological Integration In Clinical Assessments</h2>
           </div>
-          <div className="col offset-1">
+          <div className="col offset-0 offset-sm-1 d-flex justify-content-center justify-content-lg-start">
             <div className="row message-container align-items-center">
-              <div className="col-6 ms-4">
+              <div className="col-4 col-lg-6 ms-4">
                 <input className="message-input" type="text" placeholder="Create a message" />
               </div>
               <div className="col ms-4">
