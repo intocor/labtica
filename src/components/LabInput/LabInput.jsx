@@ -135,6 +135,14 @@ function Labinput() {
             <button className="prevbuttons">Previous Result</button>
           </div>
         </div>
+
+        <div className="col-2 col-md-3 mt-3 offset-0 offset-sm-1 offset-lg-2">
+          <div className="maaargin">
+            <p className="textinputtime text-end">Test Date & Time</p>
+          </div></div>
+        <div className="innerdivinputtime col-4 col-sm-5 col-md-3 col-lg-2 maaargin">
+          <input type="datetime-local" className="inputtime" name="datetime" />
+        </div>
       </div>
 
       <div className="container square mt-5">
