@@ -11,16 +11,6 @@ body {
   border-bottom: 1px solid black;
 }
 
-img {
-  max-width: 50%;
-
-}
-
-.logo img{
-  padding-left: 5rem;
-  max-width: 200px;
-}
-
 .navmargin {
   margin-left: auto;
 }
@@ -48,6 +38,7 @@ img {
 #acc-photo {
   width: 7.4rem;
   height: 3.7rem;
+  max-width: 50%;
 }
 
 .spinner-border {
@@ -69,14 +60,14 @@ img {
   #acc-photo {
     width: auto;
     height: auto;
+    margin-top: 2rem;
   }
 
-  img {
-    max-width: 45%;
-  }
+}
 
-  .navbar-toggler {
-    margin-left: -15rem;
-    }
+@media (max-width: 767.98px) {
+.navbar-toggler {
+margin-left: -15rem;
+}
 }
 
