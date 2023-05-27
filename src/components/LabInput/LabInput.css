@@ -17,7 +17,8 @@
     text-decoration: none;
     font-size: 2.5rem;
     cursor: pointer;
-    background-image: linear-gradient(#507ee7, #222fa6);
+    background-color: #425BE1;
+    transition: 0.2s background;
 }
 
 .inputtime[type="datetime-local"]::-webkit-calendar-picker-indicator {
@@ -77,16 +78,21 @@
     margin-bottom: 1rem;
 }
 
-.submit {
+.submit-btn {
     color: white;
     padding: 1rem 2.5rem;
     text-decoration: none;
     font-size: 1.5rem;
     cursor: pointer;
-    background-image: linear-gradient(#507ee7, #222fa6);
-    /* background-color: #31dc26;; */
+    background-color: #425BE1;
     border-radius: 13px;
     margin-bottom: 2rem;
+    transition: 0.2s background;
+}
+
+.submit-btn:hover,
+.prevbuttons:hover {
+    background: #111111;
 }
 
 #placeholder-loading {

@@ -337,7 +337,7 @@ function Labinput() {
                 </p>
               </div>
               <div className="col-2 offset-4 offset-sm-5">
-                <input type="submit" value="Submit" className="submit"></input>
+                <button type="submit" value="Submit" className="submit-btn">Submit</button>
               </div>
             </div>
             <div></div>
