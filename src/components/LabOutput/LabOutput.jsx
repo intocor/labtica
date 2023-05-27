@@ -2,10 +2,12 @@ import React from 'react';
 import './LabOutput.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import {BsDot} from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Laboutput(){
+    const location = useLocation();
     const navigate = useNavigate();
+    const {result, createdAt} = location.state;
     return (
         <div className="bodylaboutput">
             <div className="button-container">
@@ -13,7 +15,7 @@ function Laboutput(){
                 <div className="divinputtime">
                     <p className="textinputtime">Test Date & Time </p> 
                     <div className="timeanddate">
-                        <p>May 9, 2021 11:11 PM</p>
+                        <p>{createdAt.toLocaleString()}</p>
                     </div>
                 </div>
             </div>
@@ -29,43 +31,43 @@ function Laboutput(){
                         <table className="outouttable">
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>White Blood Cell Count (WBC)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.wbc} </td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Red Blood Cell Count (RBC)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.rbc}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Platelet Count (PLT)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.plt}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Hemoglobin Level (HGB)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.hgb}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Hematocrit Level (HCT)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.hct}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Mean Corpuscular Volume (MCV)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.mcv}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Mean Corpuscular Hemoglobin (MCH)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.mch}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Mean Corpuscular Hemoglobin Concentration (MCHD)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.mchc}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Differential White Blood Cell Count (DWBC)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.dwbc}</td>
                         </tr>
                         <tr>
                             <td className="cellspacing column1"><BsFillCheckCircleFill className="buttonCheck"/>Red Blood Cell Distribution Width (RBCDW)</td>
-                            <td className="cellspacing column2"><BsDot/> Normal</td>
+                            <td className="cellspacing column2"><BsDot/> {result.rbcdw}</td>
                         </tr>
                         </table>
                     </div>

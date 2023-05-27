@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../Firebase";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { db } from "../../Firebase";
+import { calculateBloodTestResult } from "../../api/bloodTestUtils";
 import { getUserData } from "../../api/getUserData";
 
 const withAuthCheck = (WrappedComponent) => {
@@ -35,7 +36,9 @@ const withAuthCheck = (WrappedComponent) => {
       navigate("/login");
       return null;
     }
-    return <WrappedComponent />;
+
+    const userData = getUserData(user.uid);
+    return <WrappedComponent userData={userData} />;
   };
 };
 
@@ -44,7 +47,6 @@ function Labinput() {
   // if (user) {
   //   getUserData(user.uid);
   // }
-  const data = getUserData();
   const navigate = useNavigate();
   const [labInput, setLabInput] = useState({
     wbc: "",
@@ -86,12 +88,16 @@ function Labinput() {
         dwbc: parseFloat(labInput.dwbc),
         hct: parseFloat(labInput.hct),
         rbcdw: parseFloat(labInput.rbcdw),
+        datetime: labInput.datetime,
       };
+
+      const result = calculateBloodTestResult(data);
+      console.log(result);
 
       addDoc(labInputCollection, data)
         .then(() => {
           console.log("Document successfully written!");
-          navigate("/LabOutput");
+          navigate("/LabOutput", {state: {result, createdAt: data.createdAt}});
         })
         .catch((error) => {
           console.error("Error writing document: ", error);
@@ -136,7 +142,7 @@ function Labinput() {
           </div>
         </div>
         <div className="innerdivinputtime col-4 col-sm-5 col-md-3 col-lg-2 maaargin">
-          <input type="datetime-local" className="inputtime" name="datetime" />
+          <input type="datetime-local" className="inputtime" name="datetime" value={labInput.datetime} onChange={handleInputChange}required/>
         </div>
       </div>
 
