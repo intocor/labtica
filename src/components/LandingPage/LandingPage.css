@@ -143,6 +143,11 @@
   height: 5rem;
   background-color: #425BE1;
   align-items: center;
+  transition: 0.2s background;
+}
+
+.start-button:hover {
+  background: #111111;
 }
 
 .start-text {
