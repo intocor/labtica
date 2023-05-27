@@ -5,8 +5,8 @@
     height: auto;
 }
 
-.maaargin {
-    margin-top: 3em;
+#maaargin {
+    margin-top: 2.15em;
 }
 
 .prevbuttons {
@@ -43,10 +43,15 @@
     background-color: #161389;
     opacity: 90%;
     border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+#buffer {
+    font-size: 0.1rem;
 }
 
 #paddingbox {
-    padding-top: 4rem;
+    padding: 2rem 0rem;
 }
 
 .texthead {
@@ -55,7 +60,7 @@
 }
 
 .formcontainer {
-    margin: 5rem 1rem;
+    margin: 0rem 1rem;
     padding-left: 5rem;
 }
 
