@@ -53,7 +53,7 @@ function Header() {
                                         </div>
                                     </div>
                                 ) : user ? (
-                                    <img src={user.photoURL} id="acc-photo" alt="Profile" />
+                                    <img src={user.photoURL} id="acc-photo" alt="Profile" className="rounded-circle" />
                                 ) : (
                                     <a className="nav-link" href="/login">
                                         <MdAccountCircle /> Login
