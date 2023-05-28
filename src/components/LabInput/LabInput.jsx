@@ -336,17 +336,16 @@ function Labinput() {
                   Cell Distribution Width
                 </p>
               </div>
-              <div className="col-2 offset-4 offset-sm-5">
-                <button type="submit" value="Submit" className="submit-btn">Submit</button>
-              </div>
             </div>
-            <div></div>
+          </div>
+          <div className="row justify-content-center">
+            <button type="submit" value="Submit" id="submit-btn">Submit</button>
           </div>
         </form>
       </div>
 
       <div id="buffer">.</div>
-    </div>
+    </div >
   );
 }
 
