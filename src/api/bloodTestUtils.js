@@ -24,7 +24,7 @@ export function calculateBloodTestResult(data){
       dwbc: dwbcResult,
       hct: hctResult,
       rbcdw: rbcdwResult,
-      date: dateResult,
+      createdAt: dateResult,
     };
   
     return result;
