@@ -130,7 +130,7 @@ function Labinput() {
     >
       <div className="row">
         <div className="col-4 col-md-3 offset-1">
-          <div className="maaargin">
+          <div id="maaargin">
             <button className="prevbuttons">Previous Result</button>
           </div>
         </div>
@@ -335,15 +335,16 @@ function Labinput() {
                   Cell Distribution Width
                 </p>
               </div>
-              <div className="col-2 offset-4 offset-sm-5">
-                <button type="submit" value="Submit" className="submit-btn">Submit</button>
-              </div>
             </div>
-            <div></div>
+          </div>
+          <div className="row justify-content-center">
+            <button type="submit" value="Submit" id="submit-btn">Submit</button>
           </div>
         </form>
       </div>
-    </div>
+
+      <div id="buffer">.</div>
+    </div >
   );
 }
 

@@ -10,8 +10,8 @@
   font-size: 1.8rem;
 }
 
-.message-input,
-.send-button,
+#message-input,
+#send-button,
 .footer3-info {
   font-size: 1.6rem;
 }
@@ -69,24 +69,23 @@
   font-weight: 600;
 }
 
-.message-container,
-.send-button {
+#message-container,
+#send-button {
   border-radius: 9px;
 }
 
-.message-container {
-  width: 40rem;
+#message-container {
   height: 7rem;
   background-color: #FFFFFF;
 }
 
-.message-input {
+#message-input {
   height: 3rem;
   border: none;
   padding: 1rem;
 }
 
-.send-button {
+#send-button {
   width: 14.5rem;
   height: 5.5rem;
   border: none;
@@ -95,11 +94,11 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.send-button:hover {
-  background-color: #231f1f;
+#send-button:hover {
+  background-color: #425BE1;
 }
 
-.send-button:active {
+#send-button:active {
   background-color: #0d0b0b;
   box-shadow: 0 0 5px #888;
 }
@@ -147,9 +146,27 @@
   background-color: rgb(207, 223, 236);
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 992px) {
 
   .technological {
     font-size: 4.8rem;
+  }
+
+  #message-container {
+    width: 65vh;
+  }
+
+  #message-input {
+    width: 35vh;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #message-container {
+    width: 52vh;
+  }
+
+  #message-input {
+    width: 20vh;
   }
 }
