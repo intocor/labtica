@@ -64,7 +64,7 @@ const LoginPage = () => {
       <div className="row mt-2">
         <div className="col d-flex justify-content-center">
           <button className="btn-signup border border-0 rounded-5" onClick={() => {
-            navigate('/signin');
+            navigate('/login'); // Corrected navigation to the login page
           }}>
             <CgGoogle />Register with Google
           </button>

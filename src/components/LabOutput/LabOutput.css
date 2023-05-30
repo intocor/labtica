@@ -1,5 +1,5 @@
 .bodylaboutput{
-    background-image: url("./labinput.png");
+    background-image: url("../../../public/labinput.png");
     background-size: full;
     background-position: center;
     display: flex;
@@ -160,4 +160,16 @@ tr td:last-child {
     float: center;
     width: 20%;
 
+}
+
+.show{
+    background-color: red;
+}
+.hide{
+    display: none;
+    background-color: white;
+}
+
+.dropdown-content{
+    cursor: pointer;
 }

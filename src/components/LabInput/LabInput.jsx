@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./LabInput.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsFillCheckCircleFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../Firebase";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
@@ -47,6 +47,7 @@ function Labinput() {
   // if (user) {
   //   getUserData(user.uid);
   // }
+  const params = useParams();
   const navigate = useNavigate();
   const [labInput, setLabInput] = useState({
     wbc: "",
@@ -94,9 +95,9 @@ function Labinput() {
       console.log(result);
 
       addDoc(labInputCollection, data)
-        .then(() => {
+        .then((e) => {
           console.log("Document successfully written!");
-          navigate("/LabOutput", { state: { result, createdAt: data.createdAt } });
+          navigate(`/laboutput/${e.id}`);
         })
         .catch((error) => {
           console.error("Error writing document: ", error);
