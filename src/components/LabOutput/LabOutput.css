@@ -1,12 +1,25 @@
-.bodylaboutput{
-    background-image: url("../../../public/labinput.png");
-    background-size: full;
+.bodylaboutput {
+    background-image: url("/labinput.png");
+    background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    height: 100vh;
+    height: auto;
 }
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.bodylaboutput {
+    opacity: 0;
+    animation: fade-in 1.5s forwards;
+}
+
 
 .button-container {
     display: flex;
@@ -48,9 +61,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:0;
+    padding: 0;
 }
-  
+
 .square-after {
     position: relative;
     width: 90%;
@@ -63,14 +76,14 @@
     padding-bottom: 3rem;
 }
 
-.laboratorytest-after{
+.laboratorytest-after {
     text-align: left;
     color: black;
     padding-top: 30px;
     padding-left: 13rem;
 }
 
-.completebloodcount-after{
+.completebloodcount-after {
     text-align: left;
     color: black;
     padding-bottom: 10px;
@@ -90,7 +103,7 @@
 }
 
 .buttonCheck {
-    color:#31dc26;
+    color: #31dc26;
     padding-right: 5px;
 }
 
@@ -111,12 +124,15 @@
     float: right;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
     border: none;
     padding: 10px;
 }
@@ -137,8 +153,9 @@ tr td:last-child {
     border-right: 1px solid black;
 }
 
-.outouttable{
-    margin: auto; /* center the table horizontally */
+.outouttable {
+    margin: auto;
+    /* center the table horizontally */
     height: 90%;
     width: 80%;
 }
@@ -162,14 +179,15 @@ tr td:last-child {
 
 }
 
-.show{
+.plsshow {
     background-color: red;
 }
-.hide{
+
+.plshide {
     display: none;
     background-color: white;
 }
 
-.dropdown-content{
+.dropdown-content {
     cursor: pointer;
 }
