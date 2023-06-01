@@ -22,7 +22,7 @@ function Header() {
         <nav className="navbar navbar-expand-md bg-white">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/LandingPage">
-                    <img src="../../../public/logo-cor.png" />
+                    <img src="/logo-cor.png" />
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
