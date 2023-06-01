@@ -1,21 +1,88 @@
-.bodylaboutput{
+.bodylaboutput {
     background-image: url("../../../public/labinput.png");
-    background-size: full;
+    background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    height: 100vh;
+    height: 98rem;
+    padding-bottom: 2rem;
+    padding-top: 0.5rem;
 }
+
 
 .button-container {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
-    margin-left: 5%;
-    margin-right: 20px;
-    margin-bottom: -2%;
+    margin-top: 1rem;
+    margin-left: 10%;
+    margin-right: 2rem;
+    margin-bottom: -3%;
+}
+
+.dropdown {
+    position: absolute;
+    display: flex;
+    top: 100%;
+    right: 5rem;
+    z-index: 1;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.dropdown-content {
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content:hover {
+    background-color: #c6caff;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+@media (max-width: 375px) and (max-height: 667px),
+        (max-width: 540px) and (max-height: 720px),
+        (max-width: 673px) and (max-height: 770px),
+        (max-width: 690px) and (max-height: 810px),
+        (max-width: 724px) and (max-height: 770px),
+        (max-width: 763px) and (max-height: 810px),
+        (max-width: 280px) and (max-height: 653px),
+        (max-width: 338px) and (max-height: 809px),
+        (max-width: 306px) and (max-height: 809px),
+        (max-width: 739px) and (max-height: 810px) {
+    .bodylaboutput {
+        height: fit-content;
+        padding-top: 1rem;
+        margin-bottom: -100%;
+    }
+}
+
+@media
+        (max-width: 657px) and (max-height: 770px),
+        (max-width: 696px) and (max-height: 770px),
+        (max-width: 412px) and (max-height: 915px),
+        (max-width: 760px) and (max-height: 770px),
+        (max-width: 414px) and (max-height: 896px),
+        (max-width: 682px) and (max-height: 770px) {
+    .bodylaboutput {
+        height: fit-content;
+        padding-top: 1rem;
+        margin-bottom: -100%;
+    }
 }
 
 .prevbutton {
@@ -43,14 +110,13 @@
 }
 
 .tableoutputcontainer {
-    /*width: 100%;*/
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:0;
+    padding: 0;
 }
-  
+
 .square-after {
     position: relative;
     width: 90%;
@@ -63,14 +129,14 @@
     padding-bottom: 3rem;
 }
 
-.laboratorytest-after{
+.laboratorytest-after {
     text-align: left;
     color: black;
     padding-top: 30px;
     padding-left: 13rem;
 }
 
-.completebloodcount-after{
+.completebloodcount-after {
     text-align: left;
     color: black;
     padding-bottom: 10px;
@@ -90,7 +156,7 @@
 }
 
 .buttonCheck {
-    color:#31dc26;
+    color: #31dc26;
     padding-right: 5px;
 }
 
@@ -111,12 +177,15 @@
     float: right;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
     border: none;
     padding: 10px;
 }
@@ -137,7 +206,7 @@ tr td:last-child {
     border-right: 1px solid black;
 }
 
-.outouttable{
+.outouttable {
     margin: auto; /* center the table horizontally */
     height: 90%;
     width: 80%;
@@ -151,7 +220,7 @@ tr td:last-child {
 }
 
 .column1 {
-    padding-left: 5 rem;
+    padding-left: 5rem;
     width: 80%;
     text-align: left;
 }
@@ -159,17 +228,21 @@ tr td:last-child {
 .column2 {
     float: center;
     width: 20%;
-
 }
 
-.show{
-    background-color: red;
+.show {
+    display: block;
+    background-color: rgb(243, 234, 234);
 }
-.hide{
+
+
+.hide {
     display: none;
     background-color: white;
 }
 
-.dropdown-content{
+.dropdown-content {
     cursor: pointer;
 }
+
+

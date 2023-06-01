@@ -1,14 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
-import "./LabInput.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { addDoc, collection } from "firebase/firestore";
+import React, { useEffect, useRef, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../Firebase";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { db } from "../../Firebase";
+import { auth, db } from "../../Firebase";
 import { calculateBloodTestResult } from "../../api/bloodTestUtils";
 import { getUserData } from "../../api/getUserData";
+import "./LabInput.css";
 
 const withAuthCheck = (WrappedComponent) => {
   return () => {
@@ -16,17 +15,14 @@ const withAuthCheck = (WrappedComponent) => {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
-    if (loading) {
-      return (
-        <div className="d-flex justify-content-center loading-margin">
-          <div
-            className="spinner-border"
-            id="placeholder-loading"
-            role="status"
-          >
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+if (loading) {
+  return (
+    <div className={`placeholder-loading loading-margin`}>
+      <div className="loading-container">
+        <div className="loading-circle"></div>
+      </div>
+      <div className="loading-text">Loading...</div>
+    </div>
       );
     }
 

@@ -101,13 +101,54 @@
     background: #111111;
 }
 
-#placeholder-loading {
-    width: 40rem;
-    height: 40rem;
+.placeholder-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140rem;
+    height: 60rem;
 }
 
-.loading-margin {
-    margin-top: 22vh;
+.loading-container {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    animation: rotate 1.5s infinite linear;
+}
+
+.loading-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 10rem;
+    border: 0.6rem solid rgba(0, 0, 0, 0.1);
+    border-top-color: #0e40b5;
+    border-radius: 50%;
+    animation: spin 1.5s infinite linear;
+}
+
+.loading-text {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0038bb;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+    transform: rotate(0deg);
+    }
+    100% {
+    transform: rotate(360deg);
+    }
 }
 
 .bodylabinput {
@@ -130,6 +171,13 @@
 
     .inlinename {
         font-size: 1.3rem;
+    }
+    .placeholder-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40rem;
+        height: 40rem;
     }
 }
 
