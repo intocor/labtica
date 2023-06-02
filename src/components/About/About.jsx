@@ -1,9 +1,7 @@
-import './About.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { FaFacebook } from 'react-icons/fa';
-import { BsTwitter } from 'react-icons/bs';
-import { BsInstagram } from 'react-icons/bs';
-import { BsLinkedin } from 'react-icons/bs';
+import './About.css';
 
 function About() {
   return (
@@ -75,24 +73,6 @@ function About() {
           </div>
           <div className="col-1"></div>
         </div>
-
-        {/*<div className="row mt-5">
-           <div className="col-3 me-auto">
-            <div className="row">
-              <div className="col-12">
-                <h3 className="language">Language</h3>
-              </div>
-              <div className="col-12 invisible">_</div>
-              <div className="col offset-4">
-                <select className="language-dropdown form-select">
-                  <option value="en">EN</option>
-                  <option value="fr">FR</option>
-                  <option value="es">ES</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          </div>*/}
       </div>
       <div className="container">
         <p className="footer3-info text-center my-5">© 2023 CBI Group Company. All right reserved.</p>

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.min.js';
+import React, { useState } from 'react';
 import { MdAccountCircle } from 'react-icons/md';
 import { auth } from '../../Firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import './Header.css';
 
 function Header() {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isClicked, setClick] = useState(false);
 
     const updateUser = (currentUser) => {
         setUser(currentUser);
@@ -18,11 +18,19 @@ function Header() {
 
     auth.onAuthStateChanged(updateUser);
 
+    const handleProfileClick = () => {
+        setClick(!isClicked);
+    };
+
+    const handleLogout = () => {
+        auth.signOut();
+        alert("Logged out successfully!")
+    };
     return (
         <nav className="navbar navbar-expand-md bg-white">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/LandingPage">
-                    <img src="../../../public/logo-cor.png" />
+                    <img src="/logo-cor.png" />
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -45,54 +53,36 @@ function Header() {
                             <li className="nav-item me-3">
                                 <a className="nav-link" href="/about">About</a>
                             </li>
-                            <li className="nav-item d-flex justify-content-center" style={(user || loading) ? { marginRight: loading ? '5.4rem' : '0' } : {}}>
-                                {loading ? (
-                                    <div className="mt-2 spin">
-                                        <div className="spinner-border" role="status">
-                                            <span className="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                ) : user ? (
-                                    <img src={user.photoURL} id="acc-photo" alt="Profile" className="rounded-circle" />
-                                ) : (
-                                    <a className="nav-link" href="/login">
-                                        <MdAccountCircle /> Login
-                                    </a>
-                                )}
-                            </li>
+<li className="nav-item d-flex justify-content-center" style={(user || loading) ? { marginRight: loading ? '5.4rem' : '0' } : {}}>
+{loading ? (
+    <div className="mt-2 spin">
+    <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+    </div>
+    </div>
+) : user ? (
+    <div>
+    <div onClick={handleProfileClick}>
+        <img src={user.photoURL} id="acc-photo" alt="Profile" className="rounded-circle" />
+    </div>
+    {isClicked && (
+        <div className="acc-dropdown">
+        <a className="dropdown-item" href="/login" onClick={handleLogout}>Logout</a>
+        </div>
+        )}
+    </div>
+) : (
+    <a className="nav-link" href="/login">
+        <MdAccountCircle /> Login
+    </a>
+)}
+</li>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
-
-        // <nav className="navbar navbar-expand-md bg-white">
-        //     <div className="container-fluid">
-        //         <a className="navbar-brand" href="/LandingPage">
-        //             <img src="./logo-cor.png" />
-        //         </a>
-        //         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        //             <span class="navbar-toggler-icon"></span>
-        //         </button>
-
-        //         <div className="collapse navbar-collapse" id="navbarNav">
-        //             <ul className="navbar-nav navmargin">
-        //                 <li className="nav-item me-3">
-        //                     <a className="nav-link" href="/">Home</a>
-        //                 </li>
-        //                 <li className="nav-item me-3">
-        //                     <a className="nav-link" href="/labinput">Test</a>
-        //                 </li>
-        //                 <li className="nav-item me-3">
-        //                     <a className="nav-link" href="/about">About</a>
-        //                 </li>
-        //                 <li className="nav-item">
-        //                     <a className="nav-link" href="/login"> <MdAccountCircle /> Login</a>
-        //                 </li>
-        //             </ul>
-        //         </div>
-        //     </div>
-        // </nav >
     );
 }
 
