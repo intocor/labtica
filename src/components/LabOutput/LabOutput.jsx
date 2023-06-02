@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './LabOutput.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BsFillCheckCircleFill, BsDot } from 'react-icons/bs';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
@@ -61,7 +62,9 @@ function Laboutput() {
     return (
         mainResult && resultData && !isLoading ?
             <div className="container-fluid bodylaboutput fade-in">
-                <div className="button-container">
+                <div id="topbuffer">.</div>
+
+                <div className="button-container mt-5">
                     <button className="prevbutton" onMouseDown={(e) => { setClick(!isClicked) }}>Previous Result</button>
                     <div className={`${isClicked ? "plsshow" : "plshide"} dropdown`}>
                         {resultData.map((data) => (
@@ -70,15 +73,17 @@ function Laboutput() {
                             </div>
                         ))}
                     </div>
+
                     <div className="divinputtime">
-                        <p className="textinputtime">Test Date & Time </p>
+                        <p id="textinputtime">Test Date & Time</p>
                         <div className="timeanddate">
                             <p>{mainResult.createdDate}</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="tableoutputcontainer">
+
+                <div className="container tableoutputcontainer mt-5">
                     <div className="square-after">
                         <div className="laboutputtext">
                             <div>
@@ -133,6 +138,7 @@ function Laboutput() {
                         </div>
                     </div>
                 </div>
+                <div id="buffer">.</div>
             </div>
             : null
     );
