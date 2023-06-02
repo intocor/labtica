@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import "./LabInput.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsFillCheckCircleFill } from "react-icons/bs";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../Firebase";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase";
 import { calculateBloodTestResult } from "../../api/bloodTestUtils";
 import { getUserData } from "../../api/getUserData";
@@ -34,6 +34,7 @@ const withAuthCheck = (WrappedComponent) => {
       alertShownRef.current = true;
       alert("You need to log in to access this page.");
       navigate("/login");
+      window.location.reload();
       return null;
     }
 
@@ -47,6 +48,11 @@ function Labinput() {
   // if (user) {
   //   getUserData(user.uid);
   // }
+  const [user] = useAuthState(auth);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isClicked, setClick] = useState(false);
+  const [resultData, setresultData] = useState([]);
+  const [mainResult, setMainResult] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
   const [labInput, setLabInput] = useState({
@@ -108,6 +114,26 @@ function Labinput() {
     }
   };
 
+  const handlePrevResultClick = () => {
+    const latestResult = resultData[resultData.length - 1];
+    setLabInput({
+      wbc: latestResult.wbc,
+      mcv: latestResult.mcv,
+      rbc: latestResult.rbc,
+      mch: latestResult.mch,
+      plt: latestResult.plt,
+      mchc: latestResult.mchc,
+      hgb: latestResult.hgb,
+      dwbc: latestResult.dwbc,
+      hct: latestResult.hct,
+      rbcdw: latestResult.rbcdw,
+    });
+
+    if (latestResult){
+      navigate(`/laboutput/${latestResult.id}`);
+    }
+  };
+
   const validateInputs = () => {
     for (const key in labInput) {
       const value = labInput[key];
@@ -120,9 +146,33 @@ function Labinput() {
 
   const [showComponent, setShowComponent] = useState(false);
 
-  useEffect(() => {
-    setShowComponent(true);
-  }, []);
+    useEffect(() => {
+      async function fetchData() {
+          const filteredResult = collection(db, 'labInput');
+          const q = await getDocs(filteredResult);
+          const newData = q.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+          }
+          ));
+          const result = newData.filter((e) => {
+              return e.createdBy === user.uid;
+          })
+          setresultData(result);
+          const mResult = newData.filter((e) => {
+              return e.id === params.resultid;
+          })
+          const res = { ...calculateBloodTestResult(mResult[0]) };
+          const { wbc, mcv, rbc, mch, plt, mchc, hgb, dwbc, hct, rbcdw, createdAt } = res;
+          const dte = createdAt.toDate().toLocaleString();
+          setMainResult({ wbc, mcv, rbc, mch, plt, mchc, hgb, dwbc, hct, rbcdw, createdDate: dte });
+          setIsLoading(false);
+      }
+
+      user ? fetchData() : null;
+      console.log('GUMANAAA', resultData);
+      setShowComponent(true);
+  }, [user, params.resultid]);
 
   return (
     <div
@@ -132,7 +182,7 @@ function Labinput() {
       <div className="row">
         <div className="col-4 col-md-3 offset-1">
           <div id="maaargin">
-            <button className="prevbuttons">Previous Result</button>
+            <button className="prevbuttons" onClick={handlePrevResultClick}>Previous Result</button>
           </div>
         </div>
       </div>

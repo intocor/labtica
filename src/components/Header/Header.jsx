@@ -10,6 +10,7 @@ function Header() {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isClicked, setClick] = useState(false);
 
     const updateUser = (currentUser) => {
         setUser(currentUser);
@@ -18,6 +19,14 @@ function Header() {
 
     auth.onAuthStateChanged(updateUser);
 
+    const handleProfileClick = () => {
+        setClick(!isClicked);
+    };
+
+    const handleLogout = () => {
+        auth.signOut();
+        alert("Logged out successfully!")
+    };
     return (
         <nav className="navbar navbar-expand-md bg-white">
             <div className="container-fluid">
@@ -45,21 +54,31 @@ function Header() {
                             <li className="nav-item me-3">
                                 <a className="nav-link" href="/about">About</a>
                             </li>
-                            <li className="nav-item d-flex justify-content-center" style={(user || loading) ? { marginRight: loading ? '5.4rem' : '0' } : {}}>
-                                {loading ? (
-                                    <div className="mt-2 spin">
-                                        <div className="spinner-border" role="status">
-                                            <span className="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                ) : user ? (
-                                    <img src={user.photoURL} id="acc-photo" alt="Profile" className="rounded-circle" />
-                                ) : (
-                                    <a className="nav-link" href="/login">
-                                        <MdAccountCircle /> Login
-                                    </a>
-                                )}
-                            </li>
+<li className="nav-item d-flex justify-content-center" style={(user || loading) ? { marginRight: loading ? '5.4rem' : '0' } : {}}>
+  {loading ? (
+    <div className="mt-2 spin">
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  ) : user ? (
+    <div>
+      <div onClick={handleProfileClick}>
+        <img src={user.photoURL} id="acc-photo" alt="Profile" className="rounded-circle" />
+      </div>
+      {isClicked && (
+        <div className="acc-dropdown">
+          <a className="dropdown-item" href="/login" onClick={handleLogout}>Logout</a>
+        </div>
+      )}
+    </div>
+  ) : (
+    <a className="nav-link" href="/login">
+      <MdAccountCircle /> Login
+    </a>
+  )}
+</li>
+
                         </ul>
                     </div>
                 </div>

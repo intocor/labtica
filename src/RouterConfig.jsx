@@ -15,6 +15,7 @@ const RouterConfig = () => {
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/labinput" element={<Labinput />} />
+        <Route exact path="/laboutput" element={<Laboutput />} />
         <Route exact path="/laboutput/:resultid" element={<Laboutput />} />
         <Route path="*" element={<Navigate to="/" />} />
         </Routes>
