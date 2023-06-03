@@ -19,11 +19,12 @@
 
 .dropdown {
     position: absolute;
-    top: 19%;
-    right: 0.5rem;
+    border-radius: 13px;
     z-index: 1;
     overflow-y: auto;
-    max-height: 200px;
+    max-height: 150px;
+    top: 20%;
+    right: 4.8%;
 }
 
 .dropdown-content {
@@ -33,12 +34,8 @@
     border-bottom: 1px solid #ddd;
 }
 
-.dropdown-content:last-child {
-    border-bottom: none;
-}
-
 .dropdown-content:hover {
-    background-color: #c6caff;
+    background-color: #727bef;
 }
 
 .show {

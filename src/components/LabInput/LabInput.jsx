@@ -112,6 +112,12 @@ function Labinput() {
   };
 
   const handlePrevResultClick = () => {
+
+    if (resultData.length === 0) {
+      alert("No previous results found.");
+      return;
+    }
+    
     const latestResult = resultData[resultData.length - 1];
     setLabInput({
       wbc: latestResult.wbc,
