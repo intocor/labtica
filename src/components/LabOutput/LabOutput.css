@@ -2,9 +2,9 @@
     background-image: url("../../../public/labinput.png");
     background-size: cover;
     background-position: center;
-    height: 98rem;
+    height: auto;
     padding-bottom: 2rem;
-    padding-top: 0.5rem;
+    padding-top: 2.5rem;
 }
 
 .button-container {
@@ -47,30 +47,6 @@
 
 .hide {
     display: none;
-}
-
-
-@media (max-width: 375px), (max-height: 667px),
-        (max-width: 540px), (max-height: 720px),
-        (max-width: 673px), (max-height: 770px),
-        (max-width: 690px), (max-height: 810px),
-        (max-width: 724px), (max-height: 770px),
-        (max-width: 763px), (max-height: 810px),
-        (max-width: 280px), (max-height: 653px),
-        (max-width: 338px), (max-height: 809px),
-        (max-width: 306px), (max-height: 809px),
-        (max-width: 739px), (max-height: 810px),
-        (max-width: 657px), (max-height: 770px),
-        (max-width: 696px), (max-height: 770px),
-        (max-width: 412px), (max-height: 915px),
-        (max-width: 760px), (max-height: 770px),
-        (max-width: 720px), (max-height: 770px),
-        (max-width: 414px), (max-height: 896px),
-        (max-width: 682px), (max-height: 770px) {
-    .bodylaboutput {
-        height: fit-content;
-        padding-top: 1rem;
-    }
 }
 
 .loading-container {
@@ -267,4 +243,3 @@ tr td:last-child {
 .dropdown-content {
     cursor: pointer;
 }
-

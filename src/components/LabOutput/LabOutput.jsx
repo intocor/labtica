@@ -51,7 +51,7 @@ useEffect(() => {
 }, [user, params.resultid]);
 
 return (
-    <div className="bodylaboutput">
+    <div>
     {isLoading ? (
         <div className="placeholder-loading loading-margin">
         <div className="loading-container">
@@ -61,7 +61,7 @@ return (
         </div>
     ) : (
         mainResult && resultData && (
-        <>
+        <div className="bodylaboutput">
             <div className="button-container">
             <button className="prevbutton" onMouseDown={() => setDropdownOpen(!isDropdownOpen)}>
                 Previous Result
@@ -140,7 +140,7 @@ return (
                 </div>
             </div>
             </div>
-        </>
+        </div>
         )
     )}
     </div>);

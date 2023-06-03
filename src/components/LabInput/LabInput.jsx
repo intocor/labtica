@@ -1,13 +1,14 @@
+import React, { useRef, useState, useEffect } from "react";
+import "./LabInput.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { addDoc, collection } from "firebase/firestore";
-import React, { useEffect, useRef, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { BsFillCheckCircleFill } from "react-icons/bs";
-import { useNavigate, useParams } from "react-router-dom";
-import { auth, db } from "../../Firebase";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../Firebase";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from "../../Firebase";
 import { calculateBloodTestResult } from "../../api/bloodTestUtils";
 import { getUserData } from "../../api/getUserData";
-import "./LabInput.css";
 
 const withAuthCheck = (WrappedComponent) => {
   return () => {
@@ -15,14 +16,14 @@ const withAuthCheck = (WrappedComponent) => {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
-if (loading) {
-  return (
-    <div className={`placeholder-loading loading-margin`}>
-      <div className="loading-container">
-        <div className="loading-circle"></div>
-      </div>
-      <div className="loading-text">Loading...</div>
-    </div>
+    if (loading) {
+      return (
+        <div className="placeholder-loading loading-margin">
+        <div className="loading-container">
+            <div className="loading-circle"></div>
+        </div>
+        <div className="loading-text">Loading...</div>
+        </div>
       );
     }
 
@@ -30,6 +31,7 @@ if (loading) {
       alertShownRef.current = true;
       alert("You need to log in to access this page.");
       navigate("/login");
+      window.location.reload();
       return null;
     }
 
@@ -43,6 +45,11 @@ function Labinput() {
   // if (user) {
   //   getUserData(user.uid);
   // }
+  const [user] = useAuthState(auth);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isClicked, setClick] = useState(false);
+  const [resultData, setresultData] = useState([]);
+  const [mainResult, setMainResult] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
   const [labInput, setLabInput] = useState({
@@ -104,6 +111,26 @@ function Labinput() {
     }
   };
 
+  const handlePrevResultClick = () => {
+    const latestResult = resultData[resultData.length - 1];
+    setLabInput({
+      wbc: latestResult.wbc,
+      mcv: latestResult.mcv,
+      rbc: latestResult.rbc,
+      mch: latestResult.mch,
+      plt: latestResult.plt,
+      mchc: latestResult.mchc,
+      hgb: latestResult.hgb,
+      dwbc: latestResult.dwbc,
+      hct: latestResult.hct,
+      rbcdw: latestResult.rbcdw,
+    });
+
+    if (latestResult){
+      navigate(`/laboutput/${latestResult.id}`);
+    }
+  };
+
   const validateInputs = () => {
     for (const key in labInput) {
       const value = labInput[key];
@@ -116,9 +143,33 @@ function Labinput() {
 
   const [showComponent, setShowComponent] = useState(false);
 
-  useEffect(() => {
-    setShowComponent(true);
-  }, []);
+    useEffect(() => {
+      async function fetchData() {
+          const filteredResult = collection(db, 'labInput');
+          const q = await getDocs(filteredResult);
+          const newData = q.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+          }
+          ));
+          const result = newData.filter((e) => {
+              return e.createdBy === user.uid;
+          })
+          setresultData(result);
+          const mResult = newData.filter((e) => {
+              return e.id === params.resultid;
+          })
+          const res = { ...calculateBloodTestResult(mResult[0]) };
+          const { wbc, mcv, rbc, mch, plt, mchc, hgb, dwbc, hct, rbcdw, createdAt } = res;
+          const dte = createdAt.toDate().toLocaleString();
+          setMainResult({ wbc, mcv, rbc, mch, plt, mchc, hgb, dwbc, hct, rbcdw, createdDate: dte });
+          setIsLoading(false);
+      }
+
+      user ? fetchData() : null;
+      console.log('GUMANAAA', resultData);
+      setShowComponent(true);
+  }, [user, params.resultid]);
 
   return (
     <div
@@ -128,7 +179,7 @@ function Labinput() {
       <div className="row">
         <div className="col-4 col-md-3 offset-1">
           <div id="maaargin">
-            <button className="prevbuttons">Previous Result</button>
+            <button className="prevbuttons" onClick={handlePrevResultClick}>Previous Result</button>
           </div>
         </div>
       </div>
@@ -147,8 +198,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="wbc"
+                  min = "0"
                   value={labInput.wbc}
-                  placeholder="WBC"
+                  placeholder=" billion cells/L"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -166,8 +218,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="mcv"
+                  min = "0"
                   value={labInput.mcv}
-                  placeholder="MCV"
+                  placeholder="femtoliters"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -185,8 +238,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="rbc"
+                  min = "0"
                   value={labInput.rbc}
-                  placeholder="RBC"
+                  placeholder=" trillion cells/L"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -204,8 +258,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="mch"
+                  min = "0"
                   value={labInput.mch}
-                  placeholder="MCH"
+                  placeholder="picograms"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -223,8 +278,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="plt"
+                  min = "0"
                   value={labInput.plt}
-                  placeholder="PLT"
+                  placeholder="billion cells/L"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -242,8 +298,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="mchc"
+                  min = "0"
                   value={labInput.mchc}
-                  placeholder="MCHC"
+                  placeholder="grams per deciliter"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -261,8 +318,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="hgb"
+                  min = "0"
                   value={labInput.hgb}
-                  placeholder="HGB"
+                  placeholder="grams per deciliter"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -280,8 +338,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="dwbc"
+                  min = "0"
                   value={labInput.dwbc}
-                  placeholder="DWBC"
+                  placeholder="billion cells/L"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -299,8 +358,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="hct"
+                  min = "0"
                   value={labInput.hct}
-                  placeholder="HCT"
+                  placeholder="percent of total blood volume"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -318,8 +378,9 @@ function Labinput() {
                   type="number"
                   step="any"
                   name="rbcdw"
+                  min = "0"
                   value={labInput.rbcdw}
-                  placeholder="RBCDW"
+                  placeholder="percent of total blood volume"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required

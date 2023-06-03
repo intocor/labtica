@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './LandingPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiFillCheckCircle } from 'react-icons/ai';
@@ -5,14 +6,16 @@ import { FaFacebook } from 'react-icons/fa';
 import { BsTwitter } from 'react-icons/bs';
 import { BsInstagram } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
-import React, { useState } from 'react';
 import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
+import { auth } from "../../Firebase";
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function LandingPage() {
   const [backgroundImage, setBackgroundImage] = useState('background-1');
   const navigate = useNavigate();
+  const [user] = useAuthState(auth);
 
   const handleRightClick = () => {
     if (backgroundImage === 'background-1') {
@@ -36,7 +39,7 @@ function LandingPage() {
 
   return (
     <div>
-      <div className={`container-fluid background  ${backgroundImage}`}>
+      <div className={`container-fluid background fade-in ${backgroundImage}`}>
         <div className="info row">
           <div className="col-1 mx-4 arrow-button align-self-center" onClick={handleLeftClick}>
             <IoIosArrowDropleftCircle />
@@ -55,9 +58,15 @@ function LandingPage() {
         <div className="row mt-3">
           <div className="col-2 col-md-1 me-5"></div>
           <div className="col">
-            <button className="start-button border border-0" onClick={() => {
-              navigate('/login');
-            }}>
+            <button className="start-button border border-0" onClick={(
+              () => {
+                if (user) {
+                  navigate('/labinput');
+                } else {
+                  navigate('/login');
+                }
+              }
+            )}>
               <p className="start-text">Get started</p>
             </button>
           </div>
