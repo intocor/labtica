@@ -61,7 +61,7 @@ function Header() {
     </div>
     </div>
 ) : user ? (
-    <div>
+    <div className="spin">
     <div onClick={handleProfileClick}>
         <img src={user.photoURL} id="acc-photo" alt="Profile" className="rounded-circle" />
     </div>

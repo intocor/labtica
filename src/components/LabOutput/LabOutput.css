@@ -93,21 +93,25 @@
 
 .prevbutton {
     border: none;
-    color: white;
-    padding: 5px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    cursor: pointer;
-    background-image: linear-gradient(#507ee7, #222fa6);
     border-radius: 13px;
+    color: white;
+    padding: 0.5rem 2.5rem;
+    text-decoration: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background-color: #425BE1;
+    transition: 0.2s background;    
+}
+
+.testagain:hover,
+.prevbutton:hover {
+    background: #111111;
 }
 
 .divinputtime {
     display: flex;
     align-items: center;
-    margin-right: 2.3%;
+    margin-right: 5.5%;
 }
 
 .textinputtime {
@@ -151,7 +155,7 @@
     padding-left: 20px;
     padding-right: 10px;
     font-size: 15px;
-    margin-right: -12px;
+    margin-right: -1.5rem;
 }
 
 .buttonCheck {
@@ -161,17 +165,16 @@
 
 .testagain {
     border: none;
-    color: white;
-    background-image: linear-gradient(#507ee7, #222fa6);
-    font-size: 15px;
-    text-align: center;
-    height: 35px;
-    width: 150px;
     border-radius: 13px;
+    color: white;
+    padding: 0.5rem 2.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: #425BE1;
+    transition: 0.2s background;
     margin-top: 35px;
     margin-right: 10%;
     margin-bottom: 30px;
-    cursor: pointer;
     text-decoration: none;
     float: right;
 }

@@ -39,6 +39,7 @@ body {
   width: 7.4rem;
   height: 3.7rem;
   max-width: 50%;
+  cursor: pointer;
 }
 
 .spinner-border {
@@ -70,7 +71,8 @@ body {
   .navbar-brand img {
     max-width: 80%;
   }
-  .acc-dropdown{
+
+  .acc-dropdown {
     font-size: 2rem;
   }
 }
