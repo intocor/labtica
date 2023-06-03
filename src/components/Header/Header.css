@@ -41,6 +41,12 @@ body {
   height: 3.7rem;
   max-width: 50%;
   cursor: pointer;
+  border: 2px solid transparent; 
+  transition: border-color 0.3s;
+}
+
+#acc-photo:hover {
+  border-color: blue;
 }
 
 .spinner-border {
