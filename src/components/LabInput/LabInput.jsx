@@ -176,8 +176,8 @@ function Labinput() {
       className={`container-fluid bodylabinput ${showComponent ? "fade-in" : ""
         }`}
     >
-      <div className="row">
-        <div className="col-4 col-md-3 offset-1">
+      <div className="row prevbutton-div">
+        <div className="col offset-1">
           <div id="maaargin">
             <button className="prevbuttons" onClick={handlePrevResultClick}>Previous Result</button>
           </div>

@@ -6,9 +6,12 @@
 }
 
 #maaargin {
-    margin-top: 2.15em;
+    margin-top: 2.5rem;
 }
 
+.prevbutton-div{
+    width: 65%;
+}
 .prevbuttons {
     border: none;
     border-radius: 13px;
