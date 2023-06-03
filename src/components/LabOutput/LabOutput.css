@@ -1,8 +1,8 @@
 .bodylaboutput {
-    background-image: url("../../../public/labinput.png");
+    background-image: url("/labinput.png");
     background-size: cover;
     background-position: center;
-    height: auto;
+    height: 92vh;
     padding-bottom: 2rem;
     padding-top: 2.5rem;
 }
