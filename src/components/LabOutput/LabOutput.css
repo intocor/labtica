@@ -2,7 +2,7 @@
     background-image: url("/labinput.png");
     background-size: cover;
     background-position: center;
-    height: 92vh;
+    height: auto;
     padding-bottom: 2rem;
     padding-top: 2.5rem;
 }
