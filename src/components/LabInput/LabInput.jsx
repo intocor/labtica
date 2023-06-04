@@ -206,7 +206,7 @@ function Labinput() {
                   name="wbc"
                   min = "0"
                   value={labInput.wbc}
-                  placeholder=" billion cells/L"
+                  placeholder="billion cells/L"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
@@ -246,7 +246,7 @@ function Labinput() {
                   name="rbc"
                   min = "0"
                   value={labInput.rbc}
-                  placeholder=" trillion cells/L"
+                  placeholder="trillion cells/L"
                   className="form-control border border-0"
                   onChange={handleInputChange}
                   required
