@@ -95,7 +95,7 @@ function LabOutput() {
                 Previous Result
               </button>
               <div className="divinputtime">
-                <p className="textinputtime">Test Date & Time </p>
+                <p className="textinputtime">Test Date & Time</p>
                 <div className="timeanddate">
                   <p>{mainResult.createdDate}</p>
                 </div>
@@ -104,7 +104,10 @@ function LabOutput() {
                     <div
                       className="dropdown-content"
                       key={data.id}
-                      onMouseDown={() => navigate(`/laboutput/${data.id}`)}
+                      onMouseDown={() => {
+                        navigate(`/laboutput/${data.id}`);
+                        setDropdownOpen(false);
+                      }}
                     >
                       <p className="dropdown-text">
                         {data.createdAt.toDate().toLocaleString()}

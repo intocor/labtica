@@ -22,21 +22,28 @@
     border-radius: 13px;
     z-index: 1;
     overflow-y: auto;
-    max-height: 150px;
+    max-height: 300px;
     top: 20%;
     right: 4.8%;
-}
-
-.dropdown-content {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-content {
     cursor: pointer;
     padding: 8px 12px;
     background-color: white;
     border-bottom: 1px solid #ddd;
-}
-
-.dropdown-content:hover {
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .dropdown-content:hover {
     background-color: #727bef;
-}
+    color: white;
+  }
+  
+  
 
 .show {
     display: block;

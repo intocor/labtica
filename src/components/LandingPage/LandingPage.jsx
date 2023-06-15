@@ -1,39 +1,51 @@
-import React, { useState } from 'react';
-import './LandingPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AiFillCheckCircle } from 'react-icons/ai';
-import { FaFacebook } from 'react-icons/fa';
-import { BsTwitter } from 'react-icons/bs';
-import { BsInstagram } from 'react-icons/bs';
-import { BsLinkedin } from 'react-icons/bs';
-import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
-import { IconContext } from 'react-icons/lib';
-import { auth } from "../../Firebase";
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { AiFillCheckCircle } from 'react-icons/ai';
+import { BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { FaFacebook } from 'react-icons/fa';
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
+import { auth } from "../../Firebase";
+import './LandingPage.css';
 
 function LandingPage() {
   const [backgroundImage, setBackgroundImage] = useState('background-1');
+  const [title, setTitle] = useState('Technological Integration\nIn Clinical Assessments');
+  const [infoLabtica, setInfoLabtica] = useState('Labtica offers fast and accurate testing of your Complete Blood Count (CBC) results. Simply upload your CBC report and provide your personal information to receive valuable insights into your health status. Our platform is secure and easy to use, ensuring your privacy and confidentiality. Try Labtica today for reliable CBC testing!');
+
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
   const handleRightClick = () => {
     if (backgroundImage === 'background-1') {
       setBackgroundImage('background-2');
+      setTitle('Interpreting CBC Results');
+      setInfoLabtica('CBC test results can provide a wealth of information about a patients overall health status. However, interpreting these results can be complex and requires a thorough understanding of the various blood components and their functions. LabTICA could provide educational content that explains how to interpret CBC results, including what is considered a normal range for each component, and what High results may indicate.');
     } else if (backgroundImage === 'background-2') {
       setBackgroundImage('background-3');
+      setTitle('Benefits of Regular CBC Testing');
+      setInfoLabtica('Many people only get a CBC test when they are experiencing symptoms or have a specific health concern. However, regular CBC testing can provide valuable information about a patients overall health and help identify potential health problems before they become more serious. LabTICA could provide information on the benefits of regular CBC testing, including how often patients should get tested and what types of health problems can be detected through CBC testing. This could help encourage patients to prioritize regular CBC testing as part of their overall health and wellness routine.');
     } else if (backgroundImage === 'background-3') {
       setBackgroundImage('background-1');
+      setTitle('Technological Integration\nIn Clinical Assessments');
+      setInfoLabtica('Labtica offers fast and accurate testing of your Complete Blood Count (CBC) results. Simply upload your CBC report and provide your personal information to receive valuable insights into your health status. Our platform is secure and easy to use, ensuring your privacy and confidentiality. Try Labtica today for reliable CBC testing!');
     }
   };
 
   const handleLeftClick = () => {
     if (backgroundImage === 'background-3') {
       setBackgroundImage('background-2');
+      setTitle('Interpreting CBC Results');
+      setInfoLabtica('CBC test results can provide a wealth of information about a patients overall health status. However, interpreting these results can be complex and requires a thorough understanding of the various blood components and their functions. LabTICA could provide educational content that explains how to interpret CBC results, including what is considered a normal range for each component, and what High results may indicate.');
     } else if (backgroundImage === 'background-2') {
       setBackgroundImage('background-1');
+      setTitle('Technological Integration\nIn Clinical Assessments');
+      setInfoLabtica('Labtica offers fast and accurate testing of your Complete Blood Count (CBC) results. Simply upload your CBC report and provide your personal information to receive valuable insights into your health status. Our platform is secure and easy to use, ensuring your privacy and confidentiality. Try Labtica today for reliable CBC testing!');
     } else if (backgroundImage === 'background-1') {
       setBackgroundImage('background-3');
+      setTitle('Benefits of Regular CBC Testing');
+      setInfoLabtica('Many people only get a CBC test when they are experiencing symptoms or have a specific health concern. However, regular CBC testing can provide valuable information about a patients overall health and help identify potential health problems before they become more serious. LabTICA could provide information on the benefits of regular CBC testing, including how often patients should get tested and what types of health problems can be detected through CBC testing. This could help encourage patients to prioritize regular CBC testing as part of their overall health and wellness routine.');
     }
   };
 
@@ -46,8 +58,8 @@ function LandingPage() {
           </div>
 
           <div className="col-7 col-md-6 col-lg-4 offset-1 offset-md-0">
-            <h1 className="title mb-5">Technological Integration<br />In Clinical Assessments</h1>
-            <p className="infoLabtica">Labtica offers fast and accurate testing of your Complete Blood Count (CBC) results. Simply upload your CBC report and provide your personal information to receive valuable insights into your health status. Our platform is secure and easy to use, ensuring your privacy and confidentiality. Try Labtica today for reliable CBC testing!</p>
+            <h1 className="title mb-5">{title}</h1>
+            <p className="infoLabtica">{infoLabtica}</p>
           </div>
 
           <div className="col-1 ms-auto me-5 me-sm-4 arrow-button align-self-center text-end" onClick={handleRightClick}>
